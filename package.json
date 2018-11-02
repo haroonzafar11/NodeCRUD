@@ -1,0 +1,21 @@
+{
+  "name": "node-crud",
+  "version": "1.0.0",
+  "description": "Basic CRUD operations",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haroon Zafar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  }
+}
