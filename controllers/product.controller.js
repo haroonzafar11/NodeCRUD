@@ -14,18 +14,18 @@ exports.create = function (req, res) {
         }
     );
 
-    product.save(function (err) {
-        if (err) {
-        response.status="404";
-        response.message="Failure";           
-        response.error=err;
-        return res.json(response);
-        }
+    product.save().then((product)=>{
         response.status="200";
         response.message="Success";           
         response.data=product;
         return res.json(response);
+    }).catch((err)=>{
+        response.status="404";
+        response.message="Failure";           
+        response.error=err;
+        return res.json(response);
     })
+  
 };
 
 exports.details = function (req, res) {
@@ -44,8 +44,12 @@ exports.details = function (req, res) {
     })
 };
 
+let find = () =>{
+    Product.find({});
+}
 exports.allProducts = function (req, res) {
     let response = {};
+    
     Product.find({},function (err, products) {
         if (err) { response.status="404";
         response.message="Failure";           
